@@ -4,6 +4,7 @@
 
 - clone this repo to your local computer;
 - open terminal in the project folder;
+- run script `npm i`;
 - run script `npm start`;
 
 ## Available Scripts
