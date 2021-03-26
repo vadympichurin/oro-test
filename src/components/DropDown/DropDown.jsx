@@ -8,13 +8,22 @@ import { ReactComponent as Arrow } from "../../static/icons/arrow-dropdown.svg";
 
 import styles from "./DropDown.module.css";
 
+// Переиспользуемый компонент для всех аккордионов
+// получает пропсы, которые потом рендерит
+
+// сначала сделал открытие и закрытие аккордионов через стейт компонента, но затем понял что нужно через url
 const DropDown = ({ title, text, id }) => {
   const history = useHistory();
   const location = useLocation();
 
   const isOpen = location.search.includes(id);
 
-  const handleDropDownId = () => {
+  // функция берет location проверят что в нем, 
+  // сравнивает с текущим id аккордиона, и если там такого id нет, то добавляет его в url,
+  //  а если в url уже есть такой id то удаляет его, 
+  // таким образом при первом нажатии на аккордион его можно открыть, а при повторном нажатии закрыть
+
+  const handleToggleDropDown = () => {
     let idsArr = [];
 
     if (
@@ -37,7 +46,7 @@ const DropDown = ({ title, text, id }) => {
     <div className={styles.root}>
       <button
         className={classNames(styles.btn, { [styles.active]: isOpen })}
-        onClick={handleDropDownId}
+        onClick={handleToggleDropDown}
       >
         <span>{title}</span>
         <Arrow

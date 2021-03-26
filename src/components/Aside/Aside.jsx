@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 
 import styles from "./Aside.module.css";
 
+// это основная навигация по сайту, находится в левом сайд баре
+
 const Aside = () => {
   return (
     <aside className={styles.root}>

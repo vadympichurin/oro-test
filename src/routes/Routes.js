@@ -8,11 +8,22 @@ import Orders from "../pages/Orders/Orders";
 import News from "../pages/News/News";
 import TabItem from '../components/TabItem/TabItem';
 
+/*
+ * думаю тут комментировать особо нечего...
+ * использовал компонент с возможностью прокинуть в них чилдренов, 
+ * для того, чтобы можно было добавить в будущем еще разного контатента в эти страницы
+ * Products, Customers...
+ */
+
 const Routes = () => (
   <Cabinet>
     <Switch>
       <Route path="/products">
         <Products>
+          {/* 
+          TabItem - этот компонент везде переиспользовал, 
+          чтобы не плодить много одинаковых компонентов
+          */}
           <Route path="/products/:tabId" component={TabItem}/>
         </Products>
       </Route>

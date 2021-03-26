@@ -1,49 +1,39 @@
 import React from "react";
-import classNames from "classnames";
-import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
+import { useRouteMatch , NavLink } from "react-router-dom";
 
 import styles from "./TabControls.module.css";
 
+// это дополнительная навигация по сайту, тут собраны все кнопки таб
+// переиспользуется в каждой странице
 const TabControls = () => {
-  const history = useHistory();
-  const location = useLocation();
   const match = useRouteMatch();
 
   return (
-    <div className={styles.tabContainer}>
-      <button
-        className={classNames(styles.tab, {
-          [styles.tabActive]: location.pathname.includes("general"),
-        })}
-        onClick={() => {
-          history.replace(`${match.url}/general`);
-        }}
+    <nav className={styles.tabContainer}>
+      <NavLink
+        to={`${match.url}/general`}
+        className={styles.tab}
+        activeClassName={styles.tabActive}
       >
         General
-      </button>
+      </NavLink>
 
-      <button
-        className={classNames(styles.tab, {
-          [styles.tabActive]: location.pathname.includes("address"),
-        })}
-        onClick={() => {
-          history.replace(`${match.url}/address`);
-        }}
+      <NavLink
+        to={`${match.url}/address`}
+        className={styles.tab}
+        activeClassName={styles.tabActive}
       >
         Addresses
-      </button>
+      </NavLink>
 
-      <button
-        className={classNames(styles.tab, {
-          [styles.tabActive]: location.pathname.includes("myorders"),
-        })}
-        onClick={() => {
-          history.replace(`${match.url}/myorders`);
-        }}
+      <NavLink
+        to={`${match.url}/myorders`}
+        className={styles.tab}
+        activeClassName={styles.tabActive}
       >
         Orders
-      </button>
-    </div>
+      </NavLink>
+    </nav>
   );
 };
 
