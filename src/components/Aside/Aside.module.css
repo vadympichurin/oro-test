@@ -1,0 +1,22 @@
+.root {
+  width: 250px;
+  min-width: 250px;
+  height: 100vh;
+  background-color: rgb(219, 219, 219);
+}
+
+.menu__item {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 1rem;
+}
+
+.menu__item:hover {
+  background-color: #8ac5fc;
+}
+
+.active {
+  background-color: #4aa6fc;
+  color: #fff;
+}
